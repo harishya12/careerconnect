@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerConnect | Smart Job Search Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-link"></i>
+                <span>CareerConnect</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="home-link">Home</a>
+                <a href="#jobs" class="jobs-link">Find Jobs</a>
+                <a href="#employers" class="employers-link">For Employers</a>
+                <a href="#testimonials" class="testimonials-link">Testimonials</a>
+                <a href="#" class="resources-link">Resources</a>
+            </div>
+            <div class="auth-buttons" id="auth-buttons">
+                <button class="btn btn-outline" id="login-btn">Login</button>
+                <button class="btn btn-primary" id="register-btn">Register</button>
+            </div>
+            <div class="user-profile" id="user-profile" style="display: none;">
+                <div class="user-avatar" id="user-avatar">JD</div>
+                <span class="user-name" id="user-name">John Doe</span>
+                <button class="btn btn-outline" id="logout-btn" style="margin-left: 1rem;">Logout</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page Content -->
+        <div id="home-page">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Find Your Dream Job with CareerConnect</h1>
+                    <p>Intelligent job matching, seamless applications, and career growth opportunities all in one platform.</p>
+                    <div class="search-container">
+                        <input type="text" placeholder="Job title, keywords, or company">
+                        <button><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works">
+                <div class="section-title">
+                    <h2>How CareerConnect Works</h2>
+                    <p>Our platform makes job searching and hiring simple and efficient for both candidates and employers.</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Create Your Profile</h3>
+                        <p>Build a comprehensive profile showcasing your skills, experience, and career aspirations.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Get Smart Recommendations</h3>
+                        <p>Our AI analyzes your profile to recommend the most suitable job opportunities.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Apply with One Click</h3>
+                        <p>Save time with pre-filled applications and track all your submissions in one place.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Jobs Section -->
+            <section class="featured-jobs" id="jobs">
+                <div class="jobs-container">
+                    <div class="section-title">
+                        <h2>Featured Job Opportunities</h2>
+                        <p>Browse through our curated selection of top job openings across various industries.</p>
+                    </div>
+                    <div class="job-filters">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Technology</button>
+                        <button class="filter-btn">Marketing</button>
+                        <button class="filter-btn">Finance</button>
+                        <button class="filter-btn">Healthcare</button>
+                        <button class="filter-btn">Remote</button>
+                    </div>
+                    <div class="job-list">
+                        <!-- Job cards will be populated by JavaScript -->
+                    </div>
+                    <div class="view-all">
+                        <button class="btn btn-outline">View All Jobs</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials" id="testimonials">
+                <div class="testimonials-container">
+                    <div class="section-title">
+                        <h2>Success Stories</h2>
+                        <p>Hear from candidates who found their dream jobs and employers who found perfect matches.</p>
+                    </div>
+                    <div class="testimonial-cards">
+                        <!-- Testimonials will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- For Employers Section -->
+            <section class="cta" id="employers">
+                <div class="cta-container">
+                    <h2>For Employers</h2>
+                    <p>Find the perfect candidates for your open positions with our AI-powered recruitment platform. Save time and resources while connecting with top talent.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-white">Post a Job</button>
+                        <button class="btn btn-transparent">Learn More</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Dashboard Content (hidden by default) -->
+        <div class="dashboard-container" id="dashboard">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Dashboard</h1>
+                <button class="btn btn-primary" id="post-job-btn">Post a New Job</button>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-title">Total Applications</div>
+                    <div class="stat-value">124</div>
+                    <div class="stat-change positive">+12% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Interview Rate</div>
+                    <div class="stat-value">32%</div>
+                    <div class="stat-change positive">+5% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Offer Rate</div>
+                    <div class="stat-value">18%</div>
+                    <div class="stat-change negative">-2% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Active Jobs</div>
+                    <div class="stat-value">7</div>
+                    <div class="stat-change positive">+2 from last month</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">
+                    <i class="fas fa-link"></i>
+                    <span>CareerConnect</span>
+                </a>
+                <p>Bridging the gap between talented professionals and innovative companies through intelligent matching and seamless recruitment processes.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>For Candidates</h3>
+                <ul>
+                    <li><a href="#">Browse Jobs</a></li>
+                    <li><a href="#">Create Profile</a></li>
+                    <li><a href="#">Job Alerts</a></li>
+                    <li><a href="#">Career Resources</a></li>
+                    <li><a href="#">Application Tracker</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>For Employers</h3>
+                <ul>
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Browse Candidates</a></li>
+                    <li><a href="#">Recruitment Solutions</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Employer Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest job trends and career advice.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 CareerConnect. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-login-modal">&times;</button>
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+            </div>
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="login-candidate-tab">Candidate</div>
+                <div class="auth-tab" id="login-employer-tab">Employer</div>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required>
+                    <div class="error-message" id="login-email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                    <div class="error-message" id="login-password-error">Password must be at least 6 characters</div>
+                </div>
+                <div class="form-group">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    Don't have an account? <a href="#" id="show-register-from-login">Register</a>
+                </div>
+                <div class="success-message" id="login-success">
+                    Login successful! Redirecting...
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-register-modal">&times;</button>
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+            </div>
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="register-candidate-tab">Candidate</div>
+                <div class="auth-tab" id="register-employer-tab">Employer</div>
+            </div>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required>
+                    <div class="error-message" id="register-name-error">Please enter your full name</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" required>
+                    <div class="error-message" id="register-email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                    <div class="error-message" id="register-password-error">Password must be at least 6 characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" required>
+                    <div class="error-message" id="register-confirm-password-error">Passwords do not match</div>
+                </div>
+                <div class="form-group" id="company-field" style="display: none;">
+                    <label for="register-company">Company Name</label>
+                    <input type="text" id="register-company">
+                    <div class="error-message" id="register-company-error">Please enter your company name</div>
+                </div>
+                <div class="form-group">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    Already have an account? <a href="#" id="show-login-from-register">Login</a>
+                </div>
+                <div class="success-message" id="register-success">
+                    Registration successful! Redirecting...
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Post Job Modal -->
+    <div class="modal" id="post-job-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-post-job-modal">&times;</button>
+            <div class="modal-header">
+                <h2>Post a New Job</h2>
+            </div>
+            <form id="post-job-form">
+                <div class="form-group">
+                    <label for="job-title">Job Title</label>
+                    <input type="text" id="job-title" required>
+                    <div class="error-message" id="job-title-error">Please enter a job title</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-company">Company</label>
+                    <input type="text" id="job-company" required>
+                    <div class="error-message" id="job-company-error">Please enter a company name</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-location">Location</label>
+                    <input type="text" id="job-location" required>
+                    <div class="error-message" id="job-location-error">Please enter a location</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-type">Job Type</label>
+                    <select id="job-type" required>
+                        <option value="">Select job type</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                    <div class="error-message" id="job-type-error">Please select a job type</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-salary">Salary Range</label>
+                    <input type="text" id="job-salary" placeholder="e.g. $50,000 - $70,000 per year">
+                </div>
+                <div class="form-group">
+                    <label for="job-description">Job Description</label>
+                    <textarea id="job-description" required></textarea>
+                    <div class="error-message" id="job-description-error">Please enter a job description</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-requirements">Requirements</label>
+                    <textarea id="job-requirements" required></textarea>
+                    <div class="error-message" id="job-requirements-error">Please enter job requirements</div>
+                </div>
+                <div class="form-group">
+                    <label for="job-benefits">Benefits</label>
+                    <textarea id="job-benefits"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancel-post-job">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Post Job</button>
+                </div>
+                <div class="success-message" id="post-job-success">
+                    Job posted successfully!
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
